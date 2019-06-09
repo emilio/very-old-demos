@@ -1,0 +1,164 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	background: #eee;
+	color: #333;
+	font-size: 87.5%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+html, 
+input, 
+select, 
+textarea {
+	font-family: Helvetica Neue, HelveticaNeue, Helvetica, Arial, sans-serif;
+	font-weight: 700;
+}
+
+small {
+	font-size: 85%;
+	font-weight: normal;
+}
+
+.container {
+	width: 100%;
+	max-width: 650px;
+	background: #fff;
+	border: 1px solid #ccc;
+	margin: 2em auto;
+	padding: 2em;
+}
+
+.ie6 .container {
+	width: 650px;
+}
+
+select:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+	outline: none;
+	-webkit-box-shadow: 0 0 4px 1px #5AB7F5, inset 0 0 4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 0 4px 1px #5ab7f5, inset 0 0 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 4px 1px #5AB7F5, inset 0 0 4px rgba(0, 0, 0, 0.2);
+	border-color: #5AB7F5;
+}
+
+select,
+input[type="text"],
+input[type="email"],
+textarea {
+	color: #555;
+
+	height: 2em;
+	width: 100%;
+	padding: .2em;
+	padding-left: .5em;
+	border: 1px solid #d2d2d2;
+	margin-left: 1em;
+}
+
+textarea {
+	padding: .5em;
+}
+
+select,
+input[type="submit"],
+input[type="text"],
+input[type="email"],
+textarea {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+select,
+input[type="text"],
+input[type="email"] {
+	max-width: 250px;
+}
+
+textarea {
+	display: block;
+	margin-left: 0;
+	min-height: 8em;
+}
+
+
+p {
+	line-height: 2.3em;
+}
+
+p.submit
+{
+	text-align: center;
+	margin-top: 1em;
+}
+
+.requerido {
+	color: #3D85C6;
+	font-weight: 700;
+	font-size: 1.2em;
+}
+
+
+input[type="submit"]
+{
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9, endColorstr=#E3E3E3);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#F9F9F9', endColorstr='#E3E3E3')";
+	
+	cursor: pointer;
+	color: #444;
+	position: relative;
+
+	padding: 5px 10px;
+	border: 1px solid #CCC;
+
+	background: #F1F1F1;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #F9F9F9), color-stop(100%, #E3E3E3));
+	background-image: -webkit-linear-gradient(#F9F9F9, #E3E3E3);
+	background-image: -moz-linear-gradient(#F9F9F9, #E3E3E3);
+	background-image: -o-linear-gradient(#F9F9F9, #E3E3E3);
+	background-image: linear-gradient(#F9F9F9, #E3E3E3);
+
+	-webkit-box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset;
+	-moz-box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset;
+	box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+input[type="submit"]:hover
+{
+	background: #EAEAEA;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#EAEAEA, endColorstr=#EAEAEA);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#EAEAEA', endColorstr='#EAEAEA')";
+}
+
+input[type="submit"]:active
+{
+	background: #EAEAEA;
+	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) inset;
+	-moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) inset;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.3) inset;
+}
+
+input[type="file"] {
+	display: block;
+}
+
+#error ul {
+	list-style: disc;
+	color: red;
+	padding-left: 40px;
+	margin-bottom: 2em;
+}
+#correcto {
+	color: green;
+	text-align: center;
+}
