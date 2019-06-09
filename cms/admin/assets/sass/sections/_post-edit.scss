@@ -1,0 +1,115 @@
+%decorated-label {
+	margin: 0;
+	font-size: .8em;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #999;
+}
+
+.post-title {
+	@include rem(font-size, 1.5rem);
+	line-height: 1.6;
+	width: 100%;
+	padding: .2em .5em;
+	border: 1px solid #aaa;
+	background: white;
+	@include border-radius(3px);
+	@include box-shadow(0 0 4px rgba(0, 0, 0, 0.2));
+}
+
+.post-slug {
+	background: transparent;
+	border: none;
+}
+
+.other-options-title {
+	@extend %decorated-label;
+}
+.post-content-wrapper {
+	position: relative;
+	@extend %edit-block;
+
+	label {
+		@extend %decorated-label;
+	}
+
+	label[for="content"] {
+		margin-right: 2em;
+	}
+	.icon {
+		float: right;
+		color: #666;
+		text-decoration: none;
+		margin: .1em .5em;
+		&:hover {
+			color: #555;
+		}
+	}
+}
+
+.post-content,
+.post-description {
+	border: 0;
+	width: 100%;
+	clear: both;
+	min-height: 16em;
+	resize: vertical;
+	@extend %monospace;
+}
+
+.post-description {
+	min-height: 7em;
+}
+
+.post-description-wrapper {
+	@extend %edit-block;
+	label {
+		@extend %decorated-label;
+	}
+	textarea {
+
+	}
+}
+
+:root {
+	.post-content-wrapper
+	// , .other-options 
+	{
+		input[type="radio"] {
+			@extend .assistive-text;
+			+ label {
+				cursor: pointer;
+			}
+			&:checked + label {
+				color: #555;
+			}
+		}
+	}
+}
+
+.other-options {
+	> .option {
+		float: left;
+		width: 30%;
+		min-height: 10em;
+		p {
+			margin: .4em;
+		}
+		+ .option {
+			margin-left: (100% - 30% * 3) / 2;
+		}
+	}
+	.option-decorated {
+		@extend %edit-block;
+	}
+}
+
+input[name="tags"] {
+	border: 1px solid #bbb;
+	@include border-radius(3px);
+}
+
+.post-preview {
+	text-align: left;
+	padding: 0 1em;
+}

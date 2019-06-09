@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS wp_options, wp_posts, wp_postmeta, wp_comments, wp_commentmeta, wp_users, wp_usermeta, wp_terms, wp_term_relationships, wp_term_taxonomy;

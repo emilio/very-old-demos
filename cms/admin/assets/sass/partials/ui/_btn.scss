@@ -1,0 +1,86 @@
+@mixin btn-colors($color: #666) {
+	background: $color;
+	$amount: 5%;
+
+	@if lightness($color) > 70% {
+		$amount: 10%;
+		color: #444;
+
+		&:hover {
+			color: #444;
+		}
+	}
+	@else {
+		color: white;
+
+		&:hover {
+			color: white;
+		}
+	}
+
+	@include background-image(linear-gradient($color, darken($color, $amount)));
+	border-color: darken($color, $amount + 5%);
+
+
+	&:hover {
+		background: darken($color, $amount);
+	}
+}
+
+.btn {
+	display: inline-block;
+	cursor: pointer;
+	padding: .3em .5em;
+
+	font-weight: bold;
+	border: 1px solid;
+	border-radius: .25em;
+	@include box-shadow(0 1px 0 rgba(white,.3) inset);
+
+	@include btn-colors(#fafafa);
+
+	&:active {
+		@include box-shadow(0 0 4px rgba(0,0,0,.4) inset);
+	}
+}
+
+a.btn {
+	text-decoration: none;
+}
+
+.btn-error {
+	@include btn-colors($error-color);
+}
+
+.btn-warning {
+	@include btn-colors($warning-color);
+}
+.btn-success {
+	@include btn-colors($success-color);
+}
+.btn-info {
+	@include btn-colors($info-color);
+}
+.btn-disabled,
+.btn[disabled] {
+	&, &:hover, &:focus, &:active {
+		cursor: default;
+		background: #aaa;
+		border-color: #666;
+		color: white;
+		@include box-shadow(none);
+	}
+}
+.btn-block {
+	display: block;
+
+	width: 98%;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 1em;
+	padding: .5em;
+}
+.btn-big {
+	font-size: 1.3em;
+	padding: .5em .75em;
+}

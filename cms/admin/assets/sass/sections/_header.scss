@@ -1,0 +1,144 @@
+$header-height: 3rem;
+.site-header {
+	@extend .clearfix; // Micro-clearfix, no overflow: hidden;
+	@include rem(line-height, $header-height);
+	background: $main-color;
+	border-bottom: 1px solid darken($main-color, 7%);
+	@include box-shadow(0 1px 2px rgba(0,0,0,.4));
+	&, a {
+		color: white;
+		text-decoration: none;
+	}
+
+	font-size: 0;
+
+	> .logo {
+		@include rem(font-size, 1.6rem);
+		@include rem(margin, 0 .5rem);
+		float: left;
+	}
+}
+
+.top-nav {
+	@include rem(font-size, 1rem);
+
+	> ul {
+		font-size: 0;
+			> li {
+			display: inline-block;
+			position: relative;
+			@include rem(font-size, 1rem);
+			vertical-align: middle;
+
+			> a {
+				padding: 0 1em;
+				display: block;
+
+				&.icon-inside {
+					@include rem(font-size, $header-height);
+					padding: 0 .5em;
+				}
+			}
+
+
+
+			&.active {
+				> a {
+					background: darken($main-color, 15%)
+				}
+			}
+
+
+			&.has-submenu:hover > a,
+			& > a:hover,
+			& > a:focus {
+				background: darken($main-color, 7.5%);
+			}
+
+		}
+	}
+
+	.icon:before,
+	.profile-image {
+		margin: 0 .25em;
+	}
+
+
+	.submenu {
+		top: 100%;
+		left: 0;
+		background: $main-color;
+		width: 110%;
+		@include rem(min-width, 10rem);
+		@include border-radius(3px);
+		@include box-shadow(0px 0px 5px rgba(0,0,0,.6));
+		border: 1px solid darken($main-color, 5%);
+
+		> li {
+
+			> a {
+				border-bottom: 1px solid darken($main-color, 5%);
+			}
+			+ li {
+				> a {
+					border-top: 1px solid lighten($main-color, 5%);
+				}
+			}
+
+			&:last-child {
+				> a {
+					border-bottom: 0;
+				}
+			}
+		}
+
+		a {
+			display: block;
+			@include rem(line-height, 1.6rem);
+			@include rem(padding, .3rem .9rem);
+
+			&:hover {
+				border-top-color: transparent;
+				background: darken($main-color, 5%);
+			}
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: 100%;
+			left: 10%;
+			width: 0;
+			height: 0;
+			border: 8px solid transparent;
+			border-bottom-color: $main-color;
+			z-index: 2;
+		}
+
+		/**
+		 * Separate menu and navbar, using the :before pseudo as hover target
+		 * We'll use calc for ensuring support
+		 */
+		$menu-top-distance: 5px;
+		@include calc(top, "100% + #{$menu-top-distance}");
+		&:before {
+			content: "";
+			height: $menu-top-distance * 1.5; // Por si acaso ;)
+			bottom: 100%;
+			width: 100%;
+			position: absolute;
+			z-index: 999;
+		}
+	}
+
+	.pull-right .submenu {
+		left: auto;
+		right: 0;
+
+		&:after {
+			left: auto;
+			right: 10%;
+		}
+	}
+
+}

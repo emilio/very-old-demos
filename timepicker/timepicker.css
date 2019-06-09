@@ -1,0 +1,90 @@
+/*!
+ * timepikr
+ * Emilio Cobos (http://emiliocobos.net)
+ */
+.timepikr {
+	position: relative;
+	display: inline-block;
+	/* Arrow width + spacing */
+	padding-right: 1.5em;
+}
+
+.timepikr-input {
+	text-align: center;
+	width: 5em;
+}
+
+.timepikr-arrow {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 47.5%;
+	/* Uncomment the following line for IE6/7 better styling */
+	/* height: expression((this.parentNode.offsetHeight * 47.5 / 100 - 2) + "px"); */
+	width: 1em;
+
+	position: absolute;
+	right: 0;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	
+	border: 1px solid #ccc;
+
+	background: #e1e1e1;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdfdfd), color-stop(100%, #e1e1e1));
+	background-image: -webkit-linear-gradient(#fdfdfd, #e1e1e1);
+	background-image: -moz-linear-gradient(#fdfdfd, #e1e1e1);
+	background-image: -o-linear-gradient(#fdfdfd, #e1e1e1);
+	background-image: linear-gradient(#fdfdfd, #e1e1e1);
+	zoom: 1;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#e1e1e1',GradientType=0 );
+}
+
+.timepikr-arrow:hover {
+	background: #efefef;
+}
+
+.timepikr-arrow:active {
+	background: #e1e1e1;
+	box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
+}
+
+.timepikr-arrow-up {
+	top: 0;
+	border-radius: 2px 2px 0 0;
+}
+
+.timepikr-arrow-down {
+	bottom: 0;
+	border-radius: 0 0 2px 2px;
+}
+
+.timepikr-arrow:before {
+	content: "";
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -.25em;
+
+	width: 0;
+	height: 0;
+	border: .25em solid transparent;
+	border-top-color: black;
+
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.timepikr-arrow-down:before {
+	margin-top: -.125em; /* 1/4 * arrow width (2 * border-width) */
+}
+
+.timepikr-arrow-up:before {
+	margin-top: -.375em; /* 3/4 * arrow width (2 * border-width) */
+	border-top-color: transparent;
+	border-bottom-color: black;
+}

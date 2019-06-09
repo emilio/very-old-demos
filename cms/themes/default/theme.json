@@ -1,0 +1,13 @@
+{
+	"name": "Default theme",
+	"version": "1.0",
+	"description": "Éste es el tema por defecto del CMS. Siéntete libre de cambiarlo a tu antojo",
+	"license": "GPL",
+	"author": {
+		"name": "Emilio Cobos Álvarez",
+		"url": "http://emiliocobos.net",
+		"email": "ecoal95@gmail.com"
+	},
+	"screenshots": [
+	]
+}

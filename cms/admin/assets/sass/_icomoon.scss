@@ -1,0 +1,59 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot');
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon-inside {
+	font-family: 'icomoon';
+}
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-home, .icon-fullscreen-exit, .icon-fullscreen, .icon-cancel-circle, .icon-link, .icon-pencil, .icon-sound, .icon-eye, .icon-add {
+	&:before {
+		font-family: 'icomoon';
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		-webkit-font-smoothing: antialiased;
+		line-height: 1;
+	}
+}
+.icon-home:before {
+	content: "\e000";
+}
+.icon-fullscreen-exit:before {
+	content: "\e002";
+}
+.icon-fullscreen:before {
+	content: "\e001";
+}
+.icon-cancel-circle:before {
+	content: "\d7";
+}
+.icon-link:before {
+	content: "\e004";
+}
+.icon-pencil:before {
+	content: "\e005";
+}
+.icon-sound:before {
+	content: "\e006";
+}
+.icon-eye:before {
+	content: "\e003";
+}
+.icon-add:before {
+	content: "\e007";
+}

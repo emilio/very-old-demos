@@ -1,0 +1,99 @@
+		form {
+			position: relative;
+			text-align: left;
+		}
+		form:hover .goog-ajax-results,
+		#search-input:focus ~ .goog-ajax-results {
+			clip: rect(auto auto auto auto);
+			clip: rect(auto, auto, auto, auto);
+			clip: auto;
+			clip: inherit;
+			opacity: 1;
+		}
+
+
+		.goog-ajax-results {
+			clip: rect(1px 1px 1px 1px);
+			clip: rect(1px, 1px, 1px, 1px);
+
+			position: absolute;
+			top: 100%;
+			left: 0;
+
+			min-width: 12em;
+			max-width: 100%;
+
+			font-size: .9em;
+			color: #404040;
+
+			border: 1px solid #ccc;
+			background: #fff;
+			border-radius: 3px;
+			box-shadow: 0 0 3px rgba(0,0,0,.3);
+
+			/*opacity: 0;
+			-webkit-transition: opacity .6s;
+			-moz-transition: opacity .6s;
+			-o-transition: opacity .6s;
+			transition: opacity .6s;*/
+		}
+		.goog-ajax-results,
+			.goog-ajax-results .snippet {
+			opacity: 0;
+			-webkit-transition: opacity .6s, max-height .7s;
+			-moz-transition: opacity .6s, max-height .7s;
+			-o-transition: opacity .6s, max-height .7s;
+			transition: opacity .6s, max-height .7s;
+		}
+		.goog-ajax-results .snippet {
+			max-height: 0;
+			overflow: hidden;
+		}
+			.goog-ajax-results ul {
+				padding: 0;
+				list-style: none;
+			}
+			.goog-ajax-results h3,
+			.goog-ajax-results p,
+			.goog-ajax-results ul {
+				margin: 0;
+			}
+
+			.goog-ajax-results h3 {
+				font-size: 1em;
+			}
+				.goog-ajax-results h3 a {
+					color: #333;
+				}
+
+			.goog-ajax-results .total-results {
+				font-size: .9em;
+				font-style: italic;
+			}
+			.goog-ajax-results a {
+				color: #666;
+				text-decoration: none;
+			}
+				.goog-ajax-results a:hover {
+					text-decoration: underline;
+				}
+
+			.goog-ajax-results li {
+				padding: .5em 1em;
+			}
+			
+				.goog-ajax-results li:hover {
+					background: #e9e9e9;
+				}
+					.goog-ajax-results li:hover .snippet {
+						max-height: 200px;
+						opacity: 1;
+					}
+
+			.goog-ajax-results small {
+				display: block;
+				font-style: italic;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}

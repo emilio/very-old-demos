@@ -1,0 +1,63 @@
+@import "compass";
+@import "partials/normalize";
+@import "partials/helpers";
+@import "partials/ui/ui";
+@import "partials/grid/grid";
+
+$site-width: 960px;
+$adsense-width: 320px;
+$default-font-size: 14px;
+
+html {
+	color: #454545;
+	background: #f4faf4;
+	font: #{$default-font-size/16}%1.62 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+}
+
+a {
+	color: #000080;
+
+	&:hover, &:visited {
+		color: #008000;
+	}
+}
+
+.main-container {
+	max-width: $site-width;
+	margin: 0 auto;
+}
+
+.adsense {
+	width: $adsense-width;
+	height: 280px;
+	background: #ccc;
+	float: left;
+	+ .module {
+		float: right;
+		max-width: $site-width - $adsense-width - $default-font-size;
+	}
+}
+
+.module {
+	margin: 1em 0;
+}
+
+.module-googleimages,
+.module-youtube {
+	ul {
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background: #ddd;
+		padding: .5em;
+	}
+	li {
+		list-style-type: none;
+		// float: left;
+		display: inline-block;
+		vertical-align: middle;
+		+ li {
+			margin-left: 1em;
+		}
+	}
+}

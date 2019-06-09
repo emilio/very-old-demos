@@ -1,0 +1,41 @@
+.form-label {
+	display: block;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	+ label {
+		display: inline;
+	}
+}
+
+.help-text {
+	color: #999;
+	font-size: .9em;
+	// display: block;
+}
+
+.text-input,
+.textarea,
+select {
+	border: 1px solid #bbb;
+	padding: .3em;
+	@include border-radius(3px);
+
+	&:focus {
+		outline: none;
+		border-color: #666;
+	}
+}
+
+.textarea {
+	display: block;
+	width: 100%;
+	min-height: 5em;
+	resize: vertical;
+	@include border-radius(5px);
+}
+
+select {
+	background-color: #fff;
+}

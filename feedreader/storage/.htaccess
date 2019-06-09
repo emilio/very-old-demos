@@ -1,0 +1,2 @@
+# Evitar el acceso a la caché y al log desde el navegador
+Deny From All

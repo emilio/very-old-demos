@@ -1,0 +1,87 @@
+$main-color: rgb(66, 126, 233);
+$base-font-size-in-px: 16px;
+@function strip-units($number) {
+	@return $number / ($number * 0 + 1);
+}
+@mixin rem($property, $rem-values) {
+
+	@if type-of($rem-values) == "number" {
+		#{$property}: strip-units($rem-values) * $base-font-size-in-px;
+	} @else {
+		// Create an empty list that we can dump values into
+		$px-values: unquote("");
+		@each $value in $rem-values {
+			// If the value is zero, return 0
+			@if $value == 0 {
+				$px-values: append($px-values, $value);
+			} @else {
+				$px-values: append($px-values, strip-units($value) * $base-font-size-in-px);
+			}
+		}
+		
+		// Return the property and its list of converted values
+		#{$property}: $px-values;
+	}
+
+	#{$property}: $rem-values;
+}
+@mixin calc($prop, $val) {
+	#{$prop}: -webkit-calc(#{$val});
+	#{$prop}: -moz-calc(#{$val});
+	#{$prop}: calc(#{$val});
+}
+
+* {
+	@include box-sizing(border-box);
+}
+html {
+	background: #eee url(../img/admin-bg.png);
+}
+html,
+select,
+input,
+textarea {
+	color: #333;
+}
+a {
+	$link-color: #21759b;
+	color: $link-color;
+	&:hover {
+		color: darken($link-color, 12%);
+	}
+}
+img {
+	max-width: 100%;
+}
+
+%edit-block {
+	background: white;
+	padding: .5em 1em;
+	border: 1px solid #a9a9a9;
+}
+.site-content > .wrapper {
+	width: 85%;
+	max-width: 1000px;
+	background: white;
+	margin: 1em auto;
+	padding: 1em;
+	overflow: hidden;
+	@extend %edit-block;
+
+	> p:first-child {
+		margin-top: 0;
+	}
+}
+.section-title {
+	border-bottom: 1px solid #aaa;
+	padding-bottom: .3em;
+	font-weight: normal;
+	color: #555;
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+%monospace {
+	font-family: Courier New, Courier, monospace;
+}

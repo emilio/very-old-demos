@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="es" class="no-js">
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML Ajax Uploader demo</title>
+		<meta name="description" content="Demo de una subida de imágenes con AJAX. Artículo completo: http://emiliocobos.net/" lang="es">
+		<meta name="description" content="AJAX image uploader demo. Complete article: http://emiliocobos.net/" lang="es">
+		<meta name="author" content="Emilio Cobos Álvarez">
+		<link rel="stylesheet" type="text/css" href="../demos.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body class="just-container">
+		<div class="container">
+			<div id="support"></div>
+			<form action="upload.php" id="form" method="POST">
+				<p><label for="imagen">Selecciona una imagen</label><br><input type="file" name="imagen" id="imagen"></p>
+				<p><input type="submit" value="Enviar!"></p>
+			</form>
+			<p><a href="http://emiliocobos.net/">Ver el artículo completo</a></p>
+			<div id="image-container"></div>
+		</div>
+		<script type="text/javascript" src="script.js"></script>
+	</body>
+</html>

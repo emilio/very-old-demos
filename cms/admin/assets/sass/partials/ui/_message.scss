@@ -1,0 +1,78 @@
+@mixin message-colors($bg-color: #666) {
+	background: $bg-color;
+	@include background-image(linear-gradient($bg-color, darken($bg-color, 5%)));
+	border-color: darken($bg-color, 10%);
+}
+.message {
+	display: block;
+	padding: .5em 1em;
+	margin: 1em 0;
+	color: white;
+	font-weight: bold;
+	text-shadow: 1px 0 1px rgba(200,200,200,.6);
+	border-radius: .3em;
+	border: 1px solid;
+	@include message-colors;
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.message-error {
+	@include message-colors($error-color);
+}
+
+.message-warning {
+	@include message-colors($warning-color);
+}
+.message-success {
+	@include message-colors($success-color);
+}
+
+.message-info {
+	@include message-colors($info-color);
+}
+
+.message-fade {
+	color: #999;
+	background: transparent;
+	border: 1px solid #aaa;
+	font-weight: normal;
+}
+
+.label {
+	@extend .message;
+	display: inline-block;
+	padding: .15em;
+	margin: 0;
+	font-size: .75em;
+	border-radius: .2em;
+	line-height: 1;
+	position: relative;
+	vertical-align: text-top;
+	text-decoration: none;
+}
+a.label:hover {
+	color: white;
+}
+.label-error {
+	@extend .message-error;
+}
+
+.label-warning {
+	@extend .message-warning;
+}
+.label-success {
+	@extend .message-success;
+}
+.label-info {
+	@extend .message-info;
+}
+
+.label-reset {
+	font-size: .8em;
+}
+
+.label-block {
+	display: block;
+}

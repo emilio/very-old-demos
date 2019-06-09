@@ -1,0 +1,13 @@
+.comment-content {
+	width: 100%;
+	min-height: 16em;
+	@extend %monospace;
+}
+.admin-edit_comment {
+	label {
+		@extend %decorated-label;
+	}
+	input {
+		margin-left: 1.2em;
+	}
+}

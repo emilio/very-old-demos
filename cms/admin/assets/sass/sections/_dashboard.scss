@@ -1,0 +1,23 @@
+.module {
+	background: white;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding: 1em;
+	border: 1px solid #d1d1d1;
+	@include border-radius(4px);
+	@include box-shadow(0 1px 1px rgba(0,0,0,.35));
+}
+.module-title {
+	margin-top: 0;
+	font-size: 1.2em;
+	font-weight: normal;
+	text-transform: uppercase;
+	color: #777;
+	border-bottom: 2px solid #cecece;
+}
+
+.modules-wrapper {
+	margin: 0 1em;
+	overflow: auto;
+	@extend .clearfix;
+}

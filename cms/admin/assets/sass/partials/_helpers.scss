@@ -1,0 +1,39 @@
+.clearfix {
+	*zoom: 1;
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+.ir {
+	font-size: 0/0 a;
+	color: transparent;
+	color: rgba(255,255,255,0);
+}
+
+.pull-rigth {
+	float: right;
+}
+
+.assistive-text {
+	position: absolute;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+%inline-block {
+	display: inline-block;
+	.lt-ie8 & {
+		zoom: 1;
+		display: inline;
+	}
+}
+
+%box-sizing-bbox {
+	@include box-sizing(border-box);
+}

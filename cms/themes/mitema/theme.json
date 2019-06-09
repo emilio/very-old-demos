@@ -1,0 +1,12 @@
+{
+	"name": "Un tema cualquiera",
+	"version": "1.0",
+	"description": "Éste es un tema cualquiera hecho por alguien cualquiera",
+	"license": "GPL",
+	"author": {
+		"name": "Emilio Cobos Álvarez",
+		"email": "ecoal95@gmail.com"
+	},
+	"screenshots": [
+	]
+}

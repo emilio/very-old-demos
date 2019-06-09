@@ -1,0 +1,46 @@
+.pagination {
+	margin: 1rem 0;
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		font-size: 0;
+	}
+
+	li {
+		display: inline;
+		a {
+			display: inline-block;
+			@include rem(font-size, 1rem);
+			@include rem(padding, .39rem .9rem);
+			text-align: center;
+
+			border: 1px solid darken($main-color, 5%);
+			border-left-width: 0;
+			background: $main-color;
+			color: white;
+			text-decoration: none;
+
+			&:hover {
+				background: lighten($main-color, 7.5%)
+			}
+
+		}
+
+		&:first-child a {
+			border-left-width: 1px;
+			@include border-radius(3px 0 0 3px);
+		}
+		&:last-child a {
+			@include border-radius(0 3px 3px 0);
+		}
+
+		&.active a {
+			background: darken($main-color, 7.5%);
+		}
+	}
+}
+
+.pagination-centered {
+	text-align: center;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Timepikr - Javascript input type time pollyfill</title>
+	<link rel="stylesheet" href="timepicker.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Native <code>&lt;input type="time"&gt;</code></h1>
+		<p>
+			<input type="time" id="native">
+		</p>
+		<h1>Polyfilled</h1>
+		<p>
+			<input type="text" id="polyfill_me">
+		</p>
+		<p>
+			<a href="http://emiliocobos.net/polyfill-input-type-time/">Read more</a>
+		</p>
+	</div>
+	<script src="timepicker.js"></script>
+	<script>
+		var timePicker = new TimePikr({element: document.getElementById("polyfill_me")});
+	</script>
+</body>
+</html>

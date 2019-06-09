@@ -1,0 +1,51 @@
+.text-success {
+	color: $success-color;
+}
+a.text-success {
+	&:hover  {
+		color: darken($success-color, 5%);
+	}
+
+	&:active {
+		color: darken($success-color, 10%);
+	}
+}
+
+.text-warning {
+	color: $warning-color;
+}
+a.text-warning {
+	&:hover  {
+		color: darken($warning-color, 5%);
+	}
+
+	&:active {
+		color: darken($warning-color, 10%);
+	}
+}
+
+.text-info {
+	color: $info-color;
+}
+a.text-info {
+	&:hover  {
+		color: darken($info-color, 5%);
+	}
+
+	&:active {
+		color: darken($info-color, 10%);
+	}
+}
+
+.text-error {
+	color: $error-color;
+}
+a.text-error {
+	&:hover  {
+		color: darken($error-color, 5%);
+	}
+
+	&:active {
+		color: darken($error-color, 10%);
+	}
+}

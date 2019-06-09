@@ -1,0 +1,124 @@
+<html>
+	<head></head>
+	<body>
+		<script type="text/javascript">
+		 Date.prototype.towpGMT = function() {
+		 	function dobleNum(num){
+		 		return num < 10 ? "0" + num : num.toString();
+		 	}
+			var yyyy = this.getFullYear().toString(),
+				mm = dobleNum(this.getMonth()+1),
+				dd  = dobleNum(this.getDate()),
+				hh = dobleNum(this.getHours()),
+				mns = dobleNum(this.getMinutes()),
+				ss = dobleNum(this.getSeconds());
+			return [yyyy, mm, dd].join("-") + ' ' + [hh, mns, ss].join(":"); // padding
+			};
+			var	posts = {
+				length: 0,
+				published: 0,
+				draft: 0
+			}
+			var req = new window.XMLHttpRequest;
+			var secondReq;
+			var id_reg = /\.post-([0-9]+)/;
+			req.open("GET", "blog.xml", true);
+			req.onreadystatechange = function(){
+				// sólo pasamos las entradas
+				if(req.readyState === 4){
+					console.log(req.responseXML)
+					parseDocument(req.responseXML.documentElement.getElementsByTagName('entry'));
+					secondReq = new window.XMLHttpRequest;
+					secondReq.open('POST', 'fetcher.php', false)
+					secondReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+					secondReq.onreadystatechange = function () {
+						if( secondReq.readyState === 4)
+							document.body.innerHTML = secondReq.responseText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g,'<br>');
+					}
+					secondReq.send('data=' + encodeURIComponent(JSON.stringify(posts))) 
+				}
+			}
+			req.send();
+			console.log("Enviados a fetcher.php", posts)
+
+			function parseDocument(els){
+				for ( var i = 0; i < els.length; i++){
+					var term = els[i].querySelector('category').getAttribute('term');
+					if( /\#post/.test(term) ) writePost(els[i]);
+					else if( /\#comment/.test(term) ) writeComment(els[i]);
+				}
+			}
+			function getAuthor(el){
+				var aut = el.querySelector('author');
+				return {
+					"name": aut.querySelector('name').textContent,
+					"uri": aut.querySelector('uri') ? aut.querySelector('uri').textContent : '',
+					"email": aut.querySelector('email').textContent,
+					"image": aut.querySelector('[src]').getAttribute('src')
+				}
+			}
+			function writePost(el){
+				var id = el.querySelector('id').textContent.match(id_reg)[1];
+				posts.length++
+				var temp = {
+					"id": id,
+					"link": el.querySelector('link[rel=alternate]'),
+					"published": new Date(el.querySelector('published').textContent).towpGMT(),
+					"updated": new Date(el.querySelector('updated').textContent).towpGMT(),
+					"tags": getTags(el.querySelectorAll('category')),
+					"title": el.querySelector('title').textContent,
+					"image": el.querySelector('[url]') ? el.querySelector('[url]').getAttribute('url') : null,
+					"author": getAuthor(el),
+					"content": el.querySelector('content').textContent,
+					"status": "publish",
+					"comments": {
+						length: 0
+					}
+				};
+				if( temp.link ){
+					temp.link = temp.link.getAttribute('href');
+					temp.name = temp.link.match(/\/([^\/]+)\.html/)[1];
+					posts.published++
+				} 
+				else {
+					temp.status = "draft";
+					temp.name = temp.title.toLowerCase().replace(/\s/g, "-");
+					posts.draft++
+				}
+				posts[id] = temp
+			}
+			function writeComment(el){
+				var postId = el.querySelector('link[rel=edit]').getAttribute('href').match(/\/([0-9]+)\/comments\/default/)[1];
+				var id = el.querySelector('id').textContent.match(id_reg)[1];
+				var temp = {
+					"id": id,
+					"title": el.querySelector('title').textContent,
+					"content": el.querySelector('content').textContent,
+					"author": getAuthor(el),
+					"published": new Date(el.querySelector('published').textContent).towpGMT(),
+					"updated": new Date(el.querySelector('updated').textContent).towpGMT(),
+				},
+				href;
+				posts[postId].comments.length++
+				if (el.querySelector('link[rel=related]')){
+					posts[postId]
+						.comments[
+							el.querySelector('link[rel=related]').getAttribute('href').match(/([0-9]+)$/)[1]
+						].replies[id] = temp
+					return
+				}
+				temp.replies = {};
+				posts[postId].comments[id] = temp
+			}
+			function getTags(cat){
+				var tags = []
+				// La primera es el tipo (post)
+				for( var i = 1; i < cat.length; i++){
+					tags.push(cat[i].getAttribute('term'))
+				}
+				return tags
+			}
+		</script>
+	</body>
+
+</html>

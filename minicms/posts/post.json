@@ -1,0 +1,7 @@
+{
+	"title": "Post de ejemplo",
+	"content": "<p>Hola mundo! Esto es un post de ejemplo que deberías de ver en localhost/minicms/post/ejemplo</p>",
+	"description": "Ésta es la descripción del post",
+	"date": "2013-10-14",
+	"category": "Coches baratos"
+}

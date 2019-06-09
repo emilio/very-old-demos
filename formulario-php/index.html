@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="ie6 lt-ie7 lt-ie8 lt-ie9 no-js" lang="es">
+<![endif]-->
+<!--[if IE 7]>
+<html class="ie7 lt-ie8 lt-ie9 no-js" lang="es">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie8 lt-ie9 no-js" lang="es">
+<![endif]-->
+<!--[if (gte IE 9) | !(IE)  ]><!-->
+<html class="no-js" lang="es">
+<!--<![endif]-->
+	<head>
+		<!-- Arriba: hacks para IE ;) -->
+		<title>Formulario de contacto</title>
+		<!--
+			Charset (juego de caracteres para que se vean las tildes, etc)
+		-->
+		<meta charset="UTF-8">
+
+		<!-- 
+			Viewport (la usan los móviles para calcular el ancho de las páginas)
+		-->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+		<!--
+			Referencia a nuestros archivos CSS
+		-->
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!--
+			Referencia a modernizr (en el head)
+			script.js => encima de </body>, 
+						 para acelerar la carga 
+						 y evitar conflictos con el DOM
+		-->
+		<script type="text/javascript" src="js/modernizr.js"></script>
+
+	</head>
+	<body>
+		<div id="container">
+
+			<!--
+				Aquí pondremos los errores (de existir alguno) 
+			-->
+			<div id="error"></div>
+
+			<!--
+				Definimos el método de envío (POST hace que nuestros datos no se puedan ver desde
+				el navegador, que es lo más seguro), y la URL a la que enviarlo (post.php)
+			-->
+			<form id="formulario" name="formulario" method="POST" action="post.php">
+				<!--
+					El nombre
+				-->
+				<p>
+					<label for="nombre">Nombre</label><span class="requerido">*</span>
+					<input type="text" name="nombre" id="nombre" size="30" required placeholder="Nombre">
+				</p>
+				<!--
+					El e-mail
+				-->
+				<p>
+					<label for="email">e-mail</label><span class="requerido">*</span>
+					<input type="email" name="email" id="email" placeholder="Introduce tu e-mail" required>
+				</p>
+				<!--
+					El asunto
+				-->
+				<p>
+					<label for="asunto">Asunto</label><span class="requerido">*</span>
+					<select id="asunto" name="asunto" required>
+						<option value="Pedir un tutorial">Pedir un tutorial</option>
+						<option value="Ayuda con diseño web">Ayuda con diseño web</option>
+						<option value="Decir hola">Decir hola</option>
+						<option value="Otro">Otro</option>
+					</select>
+				</p>
+				<!--
+					El mensaje
+				-->
+				<p>
+					<label for="mensaje">Mensaje</label><span class="requerido">*</span>
+					<textarea id="mensaje" name="mensaje" placeholder="El asunto" rows="8" required></textarea>
+				</p>
+				<p class="submit">
+					<input type="submit" id="submit" value="Enviar">
+				</p>
+			</form>
+			<!--
+				Aquí pondremos el mensaje cuando enviemos el mensaje
+			-->
+			<div id="correcto"></div>
+		</div>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>

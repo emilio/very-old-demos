@@ -1,0 +1,85 @@
+.container {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.pull-right {
+	float: right;
+}
+
+.pull-left {
+	float: left;
+}
+
+.row {
+	clear: both;
+	display: block;
+	// margin: 0;
+	padding: 0;
+	@include clearfix;
+}
+
+
+$columns: 12;
+$gutter: 2%;
+$column: 100% / $columns - $gutter * ($columns - 1) / $columns;
+
+
+
+%full-span {
+	margin-left: 0;
+}
+
+%base-prefix {
+	@include box-sizing(content-box);
+}
+%base-span {
+	@include box-sizing(border-box);
+	display: block;
+	float: left;
+	margin-left: $gutter;
+
+	&:first-child {
+		margin-left: 0;
+	}
+}
+
+@for $i from 1 through $columns {
+	.span#{$i} {
+		@extend %base-span;
+	}
+	.prefix#{$i} {
+		@extend %base-prefix;
+	}
+	.mobile-span#{$i} {
+		width: $column * $i + $gutter * ($i - 1);
+	}
+	.mobile-offset#{$i},
+	.mobile-offset#{$i}:first-child {
+		margin-left: $column * $i + $gutter * $i
+	}
+	.mobile-prefix#{$i} {
+		padding-left: $column * $i + $gutter * $i;
+	}
+}
+
+// lo que ocupe ancho completo no necesita márgen a la izda
+.span#{$columns},
+.mobile-span#{$columns} {
+	@extend %full-span;
+}
+
+@media only screen and( min-width: 60em ) {
+	@for $i from 1 through $columns {
+		.span#{$i} {
+			width: $column * $i + $gutter * ($i - 1);
+		}
+		.offset#{$i},
+		.offset#{$i}:first-child {
+			margin-left: $column * $i + $gutter * $i
+		}
+		.prefix#{$i} {
+			padding-left: $column * $i + $gutter * $i;
+		}
+	}
+}

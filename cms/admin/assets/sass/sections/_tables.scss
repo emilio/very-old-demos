@@ -1,0 +1,30 @@
+$border-color: #ccc;
+table {
+	@include border-radius(3px);
+	border: 1px solid $border-color;
+	border-collapse: separate;
+	table-layout: fixed;
+	max-width: 100%;
+	@include rem(font-size, .85em);
+	thead {
+		background: #ddd;
+		@include background-image(linear-gradient(lighten($border-color, 3%), lighten($border-color, 13%)));
+	}
+	th {
+		padding: .5em 1em;
+		border-bottom: 1px solid $border-color;
+		
+		+ th {
+			border-left: 1px solid $border-color;
+		}
+	}
+
+	td {
+		vertical-align: top;
+		padding: .5em 1em;
+
+		+ td {
+			border-left: 1px solid lighten($border-color, 5%);
+		}
+	}
+}
